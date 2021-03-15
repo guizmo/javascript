@@ -5,6 +5,8 @@ and then re-rendering time on the browser using the new time that we got by call
 
 HTML Code: In this section, we have a dummy time in the format of “HH:MM:SS” wrapped inside a “div” tag.
 
+### les fichiers sont inclus dans cette page
+
 ```
 <!DOCTYPE html>
 <html lang="en">
@@ -23,5 +25,7 @@ HTML Code: In this section, we have a dummy time in the format of “HH:MM:SS”
 </html>
 
 ```
+
+### Résultat final
 
 ![clock](135.gif)
