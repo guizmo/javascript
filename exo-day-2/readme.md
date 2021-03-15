@@ -23,3 +23,5 @@ HTML Code: In this section, we have a dummy time in the format of “HH:MM:SS”
 </html>
 
 ```
+
+![clock](135.gif)
