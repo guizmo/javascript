@@ -13,10 +13,23 @@ window.onload = () => {
 
 function addItem(e) {
   e.preventDefault();
+  /**
+   *
+   * a vous de jouer
+   */
 }
 
 function removeItem(e) {
   e.preventDefault();
+  /**
+   *
+   * a vous de jouer
+   */
 }
 
-function toggleButton(ref, btnID) {}
+function toggleButton(ref, btnID) {
+  /**
+   *
+   * a vous de jouer
+   */
+}
