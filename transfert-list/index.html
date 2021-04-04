@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
+  <title>TransfertList</title>
+</head>
+
+<body>
+  <p>Selected: <span id="selectNames"></span></p>
+  <div class="container">
+    <div class="wrapper">
+      <div class="container-list">
+        <h2>Items</h2>
+        <ul id="list-items">
+          <li>
+            <input type="checkbox" id="javascript" name="javascript">
+            <label for="javascript">javascript</label>
+          </li>
+
+          <li>
+            <input type="checkbox" id="jQuery" name="jQuery">
+            <label for="jQuery">jQuery</label>
+          </li>
+
+          <li>
+            <input type="checkbox" id="angularJS" name="angularJS">
+            <label for="angularJS">AngularJS</label>
+          </li>
+
+          <li>
+            <input type="checkbox" id="vueJS" name="vueJS">
+            <label for="vueJS">VueJS</label>
+          </li>
+
+          <li>
+            <input type="checkbox" id="php" name="php">
+            <label for="php">PHP</label>
+          </li>
+
+          <li>
+            <input type="checkbox" id="rubyOnRails" name="rubyOnRails">
+            <label for="rubyOnRails">Ruby On Rails</label>
+          </li>
+
+          <li>
+            <input type="checkbox" id="reactJS" name="reactJS">
+            <label for="reactJS">ReactJS</label>
+          </li>
+
+          <li>
+            <input type="checkbox" id="java" name="java">
+            <label for="java">Java</label>
+          </li>
+
+          <li>
+            <input type="checkbox" id="python" name="python">
+            <label for="python">Python</label>
+          </li>
+
+          <li>
+            <input type="checkbox" id="typeScript" name="typeScript">
+            <label for="typeScript">TypeScript</label>
+          </li>
+
+        </ul>
+
+      </div>
+      <div id="list-btn">
+        <span id="push-right" class="transfert"> > </span>
+        <span id="push-left" class="transfert">
+          < </span>
+      </div>
+      <div class="container-list">
+        <h2>Selected</h2>
+        <ul id="list-selected">
+
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer">
+      <span id="compteurItems"></span>
+
+      <span id="compteurSelected"></span>
+
+    </div>
+
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>
