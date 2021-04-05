@@ -12,9 +12,10 @@ window.onload = () => {
 
 function addItem(e) {
   e.preventDefault();
+  console.log('addItem');
 
   if (submit.value != 'Submit') {
-    console.log('Hello');
+    console.log('! Submit');
 
     editItem.target.parentNode.childNodes[0].data = document.getElementById('item').value;
 
@@ -33,8 +34,11 @@ function addItem(e) {
   }
 
   let newItem = document.getElementById('item').value;
-  if (newItem.trim() == '' || newItem.trim() == null) return false;
-  else document.getElementById('item').value = '';
+  if (newItem.trim() === '' || newItem.trim() === null) {
+    return false;
+  } else {
+    document.getElementById('item').value = '';
+  }
 
   let li = document.createElement('li');
   li.className = 'list-group-item';
@@ -49,7 +53,7 @@ function addItem(e) {
 
   editButton.className = 'btn-success btn btn-sm float-right edit';
 
-  editButton.appendChild(document.createTextNode('Edit'));
+  editButton.appendChild(document.createTextNode('Edit text'));
 
   li.appendChild(document.createTextNode(newItem));
   li.appendChild(deleteButton);
@@ -60,6 +64,7 @@ function addItem(e) {
 
 function removeItem(e) {
   e.preventDefault();
+  console.log('removeItem');
   if (e.target.classList.contains('delete')) {
     if (confirm('Are you Sure?')) {
       let li = e.target.parentNode;

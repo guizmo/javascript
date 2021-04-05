@@ -30,6 +30,7 @@ for (let i = 0; i < checkbox.length; i++) {
 }
 
 btnAll.addEventListener('click', function (event) {
+  console.log(event.target);
   if (event.target.className === 'transfert') {
     const list = event.target.id === 'push-right' ? listItemsSelect : listItems;
     writeData(list);
@@ -42,10 +43,12 @@ function writeData(list) {
     tabItemsCheck[i].firstElementChild.checked = false;
     list.appendChild(tabItemsCheck[i]);
   }
+
   for (let i = 0; i < listItemsSelect.children.length; i++) {
     const elem = listItemsSelect.children[i].querySelector('label');
     nameList.push(elem.innerText);
   }
+
   tabItemsCheck = [];
   showNbSelect.innerText = listItemsSelect.children.length + ' Selected';
   showNbitem.innerText = listItems.children.length + ' items';
