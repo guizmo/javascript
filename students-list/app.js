@@ -1,4 +1,4 @@
-console.log('students', students);
+console.log('students', JSON.stringify(students));
 const list = document.querySelector('.list');
 
 students.forEach((student) => {
@@ -24,3 +24,17 @@ function createColumn(type, className, data) {
   }
   return node;
 }
+
+function loadData() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    console.log('readyState', this.readyState);
+    if (this.readyState === 4 && this.status === 200) {
+      console.log(this.responseText);
+    }
+  };
+  xhttp.open('GET', 'students.json', true);
+  xhttp.send();
+}
+
+loadData();
