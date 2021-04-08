@@ -1,7 +1,6 @@
 // Selection de '<ul clas="list"></ul>' qui est deja dans index.html
 const list = document.querySelector('.list');
 
-// création de la function 'showData' avec 1 arguments
 function showData(students) {
   students.forEach((student, index) => {
     // dans une loop (foreach dans ce cas la)
@@ -45,7 +44,8 @@ function createMyLi(student) {
   // ajout de btnDelete a listItem
   listItem.appendChild(btnDelete);
 
-  // ajout listener on click EDIT qui utilise la function editStudent(event)
+  // ajout listener on click EDIT
+  // utilise la function editStudent(event)
   btnEdit.addEventListener('click', editStudent);
 
   // ajout listener on click DELETE
@@ -66,7 +66,6 @@ function createMyLi(student) {
   return listItem;
 }
 
-// création de la function 'createBtns' avec 2 arguments
 function createBtns(className, text) {
   const btnElement = document.createElement('button');
   btnElement.innerHTML = text;
@@ -74,7 +73,6 @@ function createBtns(className, text) {
   return btnElement;
 }
 
-// création de la function 'createColumn' avec 3 arguments
 function createColumn(type, className, data) {
   const node = document.createElement(type);
   node.setAttribute('class', className);
@@ -84,45 +82,38 @@ function createColumn(type, className, data) {
   return node;
 }
 
-// création de la function 'loadData'
 function loadData() {
-  // Rqauete AJAX
-  // Créer un objet XML HTTP Request
   var xhttp = new XMLHttpRequest();
-  // Créer la fonction à exécuter lors d’une réponse
   xhttp.onreadystatechange = function () {
     console.log('readyState', this.readyState);
     if (this.readyState === 4 && this.status === 200) {
-      // "this.responseText" est le resultat de la requete
-      // "this.responseText" est du JSON de type text
-      // il faut le "parser" pour le convertir en object javascript
-      const students = JSON.parse(this.responseText);
-      // Utilisation de la function 'showData'
+      const students = (myStudents = JSON.parse(this.responseText));
+      console.log('myStudents', myStudents);
+
       showData(students);
     }
   };
-  // Ouvrir la requête
+  //xhttp.open('GET', 'https://606ba946f8678400172e673d.mockapi.io/api/v1/students', true);
   xhttp.open('GET', 'students.json', true);
-  // Envoyer la requête
   xhttp.send();
 }
-// Utilisation de la function 'loadData'
-loadData();
 
-// création de la function 'editStudent'
+loadData();
+/**
+ * zeczezec
+ * ecuzehue
+ */
+
 function editStudent(event) {
   const li = event.target.parentNode;
   const nameSpan = li.querySelector('.name');
   const name = nameSpan.innerText;
   const id = li.id;
   var studentName = prompt('Modifier le nom', name);
-  if (studentName !== '') {
-    const newData = {
-      id: id,
-      name: studentName
-    };
 
+  if (studentName !== '') {
     var xhttp = new XMLHttpRequest();
+
     xhttp.onreadystatechange = function () {
       console.log('readyState', this.readyState);
       if (this.readyState === 4 && this.status === 200) {
@@ -130,10 +121,28 @@ function editStudent(event) {
         const listItem = createMyLi(student, null);
         console.log(listItem);
         li.replaceWith(listItem);
+
+        // myStudents.map((s) => {
+        //   if (s.id === id) {
+        //     s.name = student.name;
+        //   }
+        //   return s;
+        // });
+        // nameSpan.innerText = student.name;
+        console.log('myStudents', myStudents);
+        // showData(myStudents);
       }
     };
+    xhttp.open('PUT', `https://606ba946f8678400172e673d.mockapi.io/api/v1/students/${id}`, true);
+    xhttp.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
-    xhttp.open('PUT', 'students.json', true);
+    //xhttp.open('GET', 'students.json', true);
+    const newData = {
+      avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/vladyn/128.jpg',
+      createdAt: '2021-04-06T14:26:30.758Z',
+      id,
+      name: studentName
+    };
     xhttp.send(JSON.stringify(newData));
   }
 }
