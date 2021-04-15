@@ -86,7 +86,7 @@ function createColumn(type, className, data) {
 
 // création de la function 'loadData'
 function loadData() {
-  // Rqauete AJAX
+  // Requete AJAX
   // Créer un objet XML HTTP Request
   var xhttp = new XMLHttpRequest();
   // Créer la fonction à exécuter lors d’une réponse
@@ -119,9 +119,16 @@ function editStudent(event) {
   if (studentName !== '') {
     const newData = {
       id: id,
-      name: studentName
+      name: studentName,
+      createdAt: new Date()
     };
+    const listItem = createMyLi(newData, null);
+    console.log(listItem);
+    li.replaceWith(listItem);
 
+    // Code Juste pour example !!!! On ne peut pas modifier un fichier JSON de la sorte
+
+    /*
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
       console.log('readyState', this.readyState);
@@ -135,5 +142,7 @@ function editStudent(event) {
 
     xhttp.open('PUT', 'students.json', true);
     xhttp.send(JSON.stringify(newData));
+
+    */
   }
 }
